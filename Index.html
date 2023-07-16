@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Form Login</title>
+</head>
+<body>
+    <div class="form">
+    <header>Form Login</header>
+    <h3>Email</h3>
+    <!--validasi email menggunakan pattern-->
+    <input type="email" id="emailInput" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+    <h3>Password</h3>
+    <!--validasi password minimal input 6 digit-->
+    <input type="password" id="passwordInput" minlength="6" required>
+    <!--eksekusi tombol ketika di klik-->
+    <button type="submit" onclick="validateForm()">Log In</button>
+    </div>
+    <!--validasi sisi client menggunakan javascript-->
+    <script>
+        function validateForm()
+        {
+            const emailInput = document.getElementById('emailInput');
+            const passwordInput = document.getElementById('passwordInput');
+            //memunculkan alert bila sesuai kondisi email
+            if (!emailInput.validity.valid ) {
+                alert('Email Yang anda masukkan salah');
+            //memunculkan alert bilai sesuai kondisi password
+            } else if (!passwordInput.validity.valid) {
+                alert('Password kurang dari 6 Digit');
+            //kondisi benar
+            } else {console.log('Form Submitted')}
+        }
+    </script>
+</body>
+</html>
